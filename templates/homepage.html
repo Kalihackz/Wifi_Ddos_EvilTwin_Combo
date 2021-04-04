@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evil Twin Web</title>
+  <style>
+    body {
+      background-color: rgba(0, 0, 0, 0.9)
+    }
+
+    .main-section {
+      background: rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 32px 0 rgba(8, 230, 193, 0.9);
+      backdrop-filter: blur(20.0px);
+      -webkit-backdrop-filter: blur(20.0px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      margin-left: auto;
+      margin-right: auto;
+      width: 550px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: red;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: black;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked+.slider {
+      background-color: lime;
+    }
+
+    input:focus+.slider {
+      box-shadow: 0 0 1px red;
+    }
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+    .flex-container {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      -ms-box-orient: horizontal;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -moz-flex;
+      display: -webkit-flex;
+      display: flex;
+    }
+
+    .row {
+      -webkit-flex-direction: row;
+      flex-direction: row;
+    }
+
+    .flex-item {
+      padding: 5px;
+      margin: 5px;
+
+      line-height: 50px;
+      color: white;
+      font-weight: bold;
+      font-size: 2em;
+      text-align: center;
+    }
+
+    .fakeButtons {
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      border: 1px solid #000;
+      position: relative;
+      top: 6px;
+      left: 6px;
+      background-color: #ff3b47;
+      border-color: #9d252b;
+      display: inline-block;
+    }
+
+    .fakeMinimize {
+      left: 11px;
+      background-color: #ffc100;
+      border-color: #9d802c;
+    }
+
+    .fakeZoom {
+      left: 16px;
+      background-color: #00d742;
+      border-color: #049931;
+    }
+
+    .fakeMenu {
+      width: 550px;
+      box-sizing: border-box;
+      height: 25px;
+      background-color: #bbb;
+      margin: 0 auto;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+
+    .fakeScreen {
+      background-color: #151515;
+      color: yellow;
+      box-sizing: border-box;
+      width: 550px;
+      height: 200px;
+      margin: 0 auto;
+      padding: 20px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    span {
+      color: #fff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav></nav>
+  </header>
+  <section>
+    <main>
+      <h1 style="text-align:center;color:lime">Web Interface</h1>
+      <div class="main-section">
+        <div class=fakeMenu>
+          <div class="fakeButtons fakeClose"></div>
+          <div class="fakeButtons fakeMinimize"></div>
+          <div class="fakeButtons fakeZoom"></div>
+        </div>
+        <div class="fakeScreen">
+          <p>[+] Status of DDos Wifi : <span id="act_1" style="color:red">Deactivated</span></p>
+          <p>[+] Status of Evil Twin : <span id="act_2" style="color:red">Deactivated</span></p>
+          <ul class="flex-container row">
+            <li class="flex-item">
+              <div class="flex-container">
+                <span style="font-size:10px;color:cyan">DDos Wifi : </span>
+                <pre> </pre>
+                <span style="font-size:10px;color:red">Off</span>
+                <pre> </pre>
+                <label class="switch">
+                  <input id="toggle1" type="checkbox" onclick="toggling('toggle1','act_1','ddos')">
+                  <span class="slider round"></span>
+                </label>
+                <pre> </pre>
+                <span style="font-size:10px;color:lime">On</span>
+              </div>
+            </li>
+            <pre>  </pre>
+            <li class="flex-item">
+              <div class="flex-container">
+                <span style="font-size:10px;color:cyan">Evil Twin : </span>
+                <pre> </pre>
+                <span style="font-size:10px;color:red">Off</span>
+                <pre> </pre>
+                <label class="switch">
+                  <input id="toggle2" type="checkbox" onclick="toggling('toggle2','act_2','req')">
+                  <span class="slider round"></span>
+                </label>
+                <pre> </pre>
+                <span style="font-size:10px;color:lime">On</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </section>
+  <footer></footer>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  function toggleRequest(req) {
+    $.ajax({
+      url: req,
+      type: 'GET',
+      contentType: false,
+      dataType: 'text',
+      cache: false,
+      processData: false,
+      success: function (response) {
+        console.log(response);
+      }
+    });
+  }
+
+  function toggling(toggle, act, req) {
+    if(req == 'ddos')
+    {
+      path = '/ddos_'
+    }
+    else
+    {
+      path = '/evil_'
+    }
+    if (document.getElementById(toggle).checked) {
+      console.log("yes")
+      document.getElementById(act).setAttribute('style', 'color:lime');
+      document.getElementById(act).innerText = "Activated";
+      toggleRequest(path+'on');
+    }
+    else {
+      console.log("no");
+      document.getElementById(act).setAttribute('style', 'color:red');
+      document.getElementById(act).innerText = "Deactivated";
+      toggleRequest(path+'off');
+    }
+  }
+</script>
+
+</html>
