@@ -14,31 +14,9 @@ a dlink firmware update page.It can jam or interrupt working of other wireless n
 | sys  | aireplay-ng |  |
 | time | airodump-ng |  |
 | termcolor |   |   |
-
 -------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-Need some modules for python : 
-
-* flask - `pip3 install flask`
-* subprocess,sys,time - `Comes pre-installed with python3`
-* termcolor - `pip3 install termcolor`
-
+<img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=INSTALLATIONS and CONFIGURATION" />
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-<img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=EXTRA+REQUIREMENTS+FOR+BASH" />
-
-Need some modules for bash : 
-
-* airmon-ng , airodump-ng , aireplay-ng
-* macchanger
----------------------------------------------------------------------------------------------------------------------------------------------------
-<img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=EXTRA+REQUIREMENTS+FOR+NODE+JS" />
-
-Need some modules for bash : 
-
-* express
-* body-parser
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=FUNCTIONALITIES" />
 
