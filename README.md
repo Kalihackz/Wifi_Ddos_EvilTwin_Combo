@@ -34,8 +34,8 @@ Need some modules for bash :
 
 Need some modules for bash : 
 
-* airmon-ng , airodump-ng , aireplay-ng
-* macchanger
+* express
+* body-parser
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
