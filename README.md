@@ -22,7 +22,7 @@ Installation :
 =============
 * Clone or Download the repository.
 * Unzip the zip.
-* Open a terminal in the unzipped folder namely : `Wifi_Ddos_EvilTwin_Combo`
+* Open a terminal in the unzipped folder namely : `Wifi_Ddos_EvilTwin_Combo-main`
 * Now enter the following commands in the terminal :
 
 | Commands  |
