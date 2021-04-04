@@ -16,11 +16,13 @@ a dlink firmware update page.It can jam or interrupt working of other wireless n
 | termcolor |   |   |
 -------------------------------------------------------------------------------------------------------------------------------------------------
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=INSTALLATIONS and CONFIGURATION" />
+
 Installation :
-* Step 1 : Clone or Download the repository.
-* Step 2 : Unzip the zip.
-* Step 3 : Open a terminal in the unzipped folder namely : `Wifi_Ddos_EvilTwin_Combo`
-* Step 4 : Now enter the following commands in the terminal :
+
+* Clone or Download the repository.
+* Unzip the zip.
+* Open a terminal in the unzipped folder namely : `Wifi_Ddos_EvilTwin_Combo`
+* Now enter the following commands in the terminal :
          ```
          chmod +x Ddos_Wifi/WifiMoniterModeScanner.sh
          chmod +x Ddos_Wifi/wifiDos.sh
