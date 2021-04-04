@@ -23,9 +23,9 @@ Installation :
 * Unzip the zip.
 * Open a terminal in the unzipped folder namely : `Wifi_Ddos_EvilTwin_Combo`
 * Now enter the following commands in the terminal :
-         - chmod +x Ddos_Wifi/WifiMoniterModeScanner.sh
-         - chmod +x Ddos_Wifi/wifiDos.sh
-         - chmod +x Ddos_Wifi/off_wifiDos.sh
+         1. chmod +x Ddos_Wifi/WifiMoniterModeScanner.sh
+         2. chmod +x Ddos_Wifi/wifiDos.sh
+         3. chmod +x Ddos_Wifi/off_wifiDos.sh
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=FUNCTIONALITIES" />
