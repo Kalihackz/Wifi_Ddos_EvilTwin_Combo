@@ -14,6 +14,7 @@ a dlink firmware update page.It can jam or interrupt working of other wireless n
 | sys  | aireplay-ng |  |
 | time | airodump-ng |  |
 | termcolor |   |   |
+
 -------------------------------------------------------------------------------------------------------------------------------------------------
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=INSTALLATIONS and CONFIGURATION" />
 
@@ -23,6 +24,7 @@ Installation :
 * Unzip the zip.
 * Open a terminal in the unzipped folder namely : `Wifi_Ddos_EvilTwin_Combo`
 * Now enter the following commands in the terminal :
+
 | Commands  |
 | ------------- |
 | chmod +x Ddos_Wifi/WifiMoniterModeScanner.sh |
