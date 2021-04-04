@@ -15,10 +15,27 @@ a dlink firmware update page.It can jam or interrupt working of other wireless n
 
 Need some modules for python : 
 
-* wifi - `pip3 install wifi`
-* time - `Comes pre-installed with python3`
+* flask - `pip3 install flask`
+* subprocess,sys,time - `Comes pre-installed with python3`
 * termcolor - `pip3 install termcolor`
-* texttable - `pip3 install texttable`
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+<img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=EXTRA+REQUIREMENTS+FOR+BASH" />
+
+Need some modules for bash : 
+
+* airmon-ng , airodump-ng , aireplay-ng
+* macchanger
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+<img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=EXTRA+REQUIREMENTS+FOR+NODE+JS" />
+
+Need some modules for bash : 
+
+* airmon-ng , airodump-ng , aireplay-ng
+* macchanger
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
