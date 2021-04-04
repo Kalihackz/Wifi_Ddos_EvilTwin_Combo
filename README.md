@@ -13,6 +13,7 @@ Tools and Modules used :
 | subprocess | macchanger | body-parser |
 | sys  | aireplay-ng |  |
 | time | airodump-ng |  |
+| termcolor |   |   |
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
