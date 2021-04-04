@@ -37,10 +37,15 @@ We need two Wireless Adapters if two attacks are done together.
 * `wlan1` - here is used for Wifi Ddos.
 * `wlan0` - here is used for Evil Twin purposes.
 
+Start Attack :
+
+Command : `sudo python3 Web_Evil_Twin.py`
+Navigate to http://127.0.0.1:5000
+
 -------------------------------------------------------------------------------------------------------------------------------------------------
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=FUNCTIONALITIES" />
 
-* **Wifi_Tool.py** - Used for scanning nearby Wifi Networks,Connect to it either by manual password entry or by brute force attack.
+* **Web_Evil_Twin.py** - One click web based Wifi Attacking Tool for DDosing and Evil Twin.
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=SCREENSHOT+OF+THE+SCRIPT" />
