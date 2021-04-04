@@ -1,6 +1,3 @@
-# Wifi_Ddos_EvilTwin_Combo
-DDos and Evil Twin Combo
-
 <img src="https://via.placeholder.com/1270x120/0d1117/fffff?text=Wifi+DDos+EvilTwin+Combo" />
 
 ```html
@@ -9,6 +6,17 @@ a dlink firmware update page.It can jam or interrupt working of other wireless n
 2.4Ghz range.So be careful and don't misuse this script.Its only for education purpose.
 ```
 ---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Tools and Modules used : 
+
+| Python3  | Bash | Node JS |
+| ------------- | ------------- | --------
+| flask | airmon-ng | express |
+| subprocess | macchanger | body-parser |
+| sys  | aireplay-ng |  |
+| time | airodump-ng |  |
+
+
 
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=EXTRA+REQUIREMENTS+FOR+PYTHON" />
 
