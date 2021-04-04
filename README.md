@@ -8,7 +8,7 @@ a dlink firmware update page.It can jam or interrupt working of other wireless n
 <img src="https://via.placeholder.com/1000x100/0d1117/BFFF00?text=Tools+and+Modules+used" />
 
 | Python3  | Bash | Node JS |
-| ------------- | ------------- | --------
+| ------------- | ------------- | -------- |
 | flask | airmon-ng | express |
 | subprocess | macchanger | body-parser |
 | sys  | aireplay-ng |  |
@@ -23,9 +23,11 @@ Installation :
 * Unzip the zip.
 * Open a terminal in the unzipped folder namely : `Wifi_Ddos_EvilTwin_Combo`
 * Now enter the following commands in the terminal :
-         1. chmod +x Ddos_Wifi/WifiMoniterModeScanner.sh
-         2. chmod +x Ddos_Wifi/wifiDos.sh
-         3. chmod +x Ddos_Wifi/off_wifiDos.sh
+| Commands  |
+| ------------- |
+| chmod +x Ddos_Wifi/WifiMoniterModeScanner.sh |
+| chmod +x Ddos_Wifi/wifiDos.sh |
+| chmod +x Ddos_Wifi/off_wifiDos.sh |
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=FUNCTIONALITIES" />
