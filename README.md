@@ -19,7 +19,7 @@ a dlink firmware update page.It can jam or interrupt working of other wireless n
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=INSTALLATIONS and CONFIGURATION" />
 
 Installation :
-
+=============
 * Clone or Download the repository.
 * Unzip the zip.
 * Open a terminal in the unzipped folder namely : `Wifi_Ddos_EvilTwin_Combo`
@@ -32,12 +32,14 @@ Installation :
 | chmod +x Ddos_Wifi/off_wifiDos.sh |
 
 Assumptions :
+===========
 
 We need two Wireless Adapters if two attacks are done together.
 * `wlan1` - here is used for Wifi Ddos.
 * `wlan0` - here is used for Evil Twin purposes.
 
 Start Attack :
+============
 
 Command : `sudo python3 Web_Evil_Twin.py`
 Navigate to http://127.0.0.1:5000
