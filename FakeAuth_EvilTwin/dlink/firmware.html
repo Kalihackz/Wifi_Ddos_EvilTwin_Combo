@@ -1,0 +1,489 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="No-cache" />
+<meta http-equiv="Content-Type" content="no-cache">
+<title>D-LINK SYSTEMS, INC. | WIRELESS ROUTER | HOME</title>	
+<link rel="stylesheet" type="text/css" href="/style.css">
+<script type="text/javascript">
+//<![CDATA[
+/*---- Global variable define -----*/
+var G_Error	= "0"; 
+var G_Status	= "0"; 
+var G_Error_Msg	= "";
+var G_ViewState	= "-";
+var userLevel   = "1";
+var G_Menu      = "toolbox";
+var G_Page      = "Too_firmware";
+var G_SubPage   = "0";
+var G_ErrorPage = "0";
+var G_Date	='04/13/2012-15:07:23';
+var G_SysToken  = "1025202362";
+var G_Date='08/09/2019-12:11:38';
+
+﻿/*  JavaScript Document  */
+//deviceinfo
+var G_FirmwareTime = "Aug--6-2019T20:24:11";//软件编译时间暂时没有
+var G_CurFirmwareVersion = "V7.12";
+
+var G_WANConn = [];
+			
+			G_WANConn['ConnectionStatus'] = "Connected";	// ConnectionStatus
+		
+	
+
+	
+			
+			G_WANConn['ConnectionStatus'] = "Connected";	// ConnectionStatus
+		
+	
+
+	
+
+var firmwarepro = 0;
+var LangFilepro = 0;
+function upFirmwareProgress() {
+	var _firmware = $("firmware").value;
+	$('tokenid1').value=G_SysToken;
+	//var _config = $("config").value;
+	//每次只能升级一个
+	if(_firmware == ""){
+		alert(SEcode[2000]);
+		return false;
+	}else if(_firmware.match(/.bin$/) == null){
+		alert(SEcode[2003]);
+		return false;
+	}
+	
+	if(firmwarepro == 0){
+		firmwarepro = 1;
+		return true;
+	}
+	alert(SEcode[2001]);
+	return false;
+}
+function upLangFileProgress() {
+	var _LangFile = $("uploadLangFile").value;
+	$('tokenid2').value=G_SysToken;
+	//alert(_LangFile);
+	//var _config = $("config").value;
+	//每次只能升级一个
+	if(_LangFile == ""){
+		alert(SEcode[2000]);
+		return false;
+	}else if(_LangFile.match(/.lng$/) == null){
+		alert(SEcode[2006]);
+		return false;
+	}
+	
+	if(LangFilepro == 0){
+		LangFilepro = 1;
+		return true;
+	}
+	alert(SEcode[2001]);
+	return false;
+}
+
+var configpro = 0;
+function upConfigProgress() {
+	var _config = $("config").value;
+	//文件类型
+	if(_config == ""){
+		alert(SEcode[2000]);
+		return false;
+	}else if(_config.match(/.xml$/) == null){
+		alert(SEcode[2002]);
+		return false;
+	}
+		
+	if(configpro == 0){
+		configpro = 1;
+		return true;
+	}
+	alert(SEcode[2001]);
+	return false;
+}
+
+function ajaxGetStatus()
+{
+	var _url = "/cgi-bin/webproc?getpage=html/page/FW_check.ajax.js&var:page=*";
+	ajax = Ajax.getInstance(_url, "", 0, Ajax_handler,null_errorfunc);
+	ajax.get();
+}
+var count=0;
+function Ajax_handler(_text)
+{
+	try{
+		eval(_text);
+	}catch(e){
+		alert(SEcode['lang_ddns_ajax']+e.message);
+		return;
+	}
+	G_SysToken = G_AjaxToken;
+	count++;
+	if(G_Error == '1')
+	{
+		dealWithError();
+		$("chkfw_btn").disabled = false;			
+		$("FW0082").disabled = false;
+		$("FW0081").disabled = false;
+	}	
+	else
+	{
+		if(G_checkfw_status == "256"&&count<300)
+			setTimeout('ajaxGetStatus()',1000);
+		else if(G_checkfw_status == "255"||count>=300)
+		{
+			$("fw_message").innerHTML = data_languages.Too_firmware.innerHTML.FW025;
+			$("chkfw_btn").disabled = false;			
+			$("FW0082").disabled = false;
+			$("FW0081").disabled = false;
+		}
+		else
+		{	
+			$("chkfw_btn").disabled = false;			
+			$("FW0082").disabled = false;
+			$("FW0081").disabled = false;
+			var fw_maj = parseInt(G_NEWFwMAJ, [10]);//大版本号
+			var fw_min = parseInt(G_NEWFwMIN, [10]);//小版本号
+			//alert("main:"+fw_maj+",min:"+fw_min);
+			
+			var G_CurFW = "7.12";
+			G_CurFW="0.00";
+			//我们当前的版本号首字符是字母,样机的没有字母，这里就没有比较首字符
+			var curfwstr  = G_CurFW.split(".");//当前版本
+			var curfw_maj = parseInt(curfwstr[0], [10]);
+			var curfw_min = parseInt(curfwstr[1], [10]);
+			//alert("main:"+curfw_maj+",min:"+curfw_min);
+			if(curfw_maj > fw_maj || (curfw_maj ==fw_maj && curfw_min >= fw_min))
+			{
+				$("fw_message").innerHTML = data_languages.Too_firmware.innerHTML.FW026;
+				$("div_ckfwver").style.display="none";
+			}
+			else
+			{
+				$("fw_message").style.display = "none";
+				$("div_ckfwver").style.display = "block";
+				setJSONValue({
+					'latest_fw_ver' 		: G_NEWFwMAJ+"."+G_NEWFwMIN,
+					'latest_fw_date' 		: G_LatestFwDate
+				});	
+				G_LatestFwURLS = strAnsi2Unicode(Base64.Decode(G_LatestFwURLS));
+				var urls1=[];
+				var urls=[];				
+				if(G_LatestFwURLS.indexOf(";")>-1)
+				{
+					urls=G_LatestFwURLS.split(";");
+					for(var i=0;i<urls.length;i++)
+					{
+						urls1[i]= urls[i].split("/")[2];
+					}
+				}
+				else
+				{
+					urls1[0]=G_LatestFwURLS.split("/")[2];
+					urls[0]=G_LatestFwURLS;
+				}
+				for(var i=0;i<urls1.length;i++)
+				{
+					var x=document.getElementById("fw_dl_locs");
+					var option=document.createElement("option");
+					option.text=urls1[i];
+					option.value=urls[i];
+					try
+						{
+						  //for IE earlier than version 8
+						  x.add(option,x.options[null]);
+						}
+					catch (e)
+						{
+							x.add(option,null);
+						}
+				}
+			}
+		}
+	}
+}
+function null_errorfunc()
+{
+
+	return true;
+}
+function OnClickChkFW()
+{
+	$("chkfw_btn").disabled = true;
+	$("FW0082").disabled = true;
+	$("FW0081").disabled = true;
+	$("fw_message").style.display="block";
+	$("fw_message").innerHTML = data_languages.Too_firmware.innerHTML.FW027;
+	$("div_ckfwver").style.display="none";
+	$H({
+		"obj-action"           : "set",
+		':InternetGatewayDevice.X_TWSZ-COM_Lang.X_TWSZ-COM_ImageUpgradeOpt' : 'AutoDetect',
+		"getpage"              : "html/page/FW_check.ajax.js",
+		"errorpage"            : "html/page/FW_check.ajax.js",
+		'var:sys_Token' : G_SysToken,
+		'ajax'          : 'ok',
+		'var:menu'      	   : G_Menu,
+		'var:page'      	   : G_Page,
+		"var:errorpage"        : G_Page,
+		"var:CacheLastData"    : ViewState.Save()
+	}, true);
+
+	var _url = "/cgi-bin/webproc";
+	G_ajax = Ajax.getInstance(_url, "", 0, Ajax_handler, null_errorfunc);
+	G_ajax.post($('uiPostForm'));
+	
+}
+function OnClickDownloadFW()
+{
+	var downloadSelect = $("fw_dl_locs");
+	var selectBox = downloadSelect.selectedIndex;
+	var URL = downloadSelect.options[selectBox].value;
+	
+	self.location.href=URL;
+
+}
+
+function uiOnload(){
+	
+	setJSONValue({
+		'fw_build_time' 		: G_FirmwareTime,
+		'st_fw' 				: G_CurFirmwareVersion
+	});
+	
+	$('tokenid1').value=G_SysToken;
+	$('tokenid2').value=G_SysToken;
+	if(G_WANConn['ConnectionStatus'] == "Disconnected")
+	{
+		$("chkfw_btn").disabled = true;
+	}
+}
+
+function dealWithError(){
+	if (G_Error != 1){ return false;}
+	
+	var arrayHint = [];
+	dealErrorMsg(arrayHint, G_Error_Msg);
+}
+
+
+var myTime = setTimeout("Timeout()", 10*60000);   
+function Timeout() {
+     document.location.href='/cgi-bin/webproc?getpage=html/logout.html&var:menu=basic&var:page=Bas_wansum';   
+} 
+//]]>
+</script>
+</head>
+
+<!--body style="visibility:hidden;"-->
+<body class="mainbg">
+<div class="maincontainer">	
+	<div class="headercontainer">
+		<span class="product">
+			<span id = "TOPM015">Product Page : </span>
+			<a target="_blank" href="http://support.dlink.com">DIR-825</a>
+		</span>
+		<span class="version">				
+			<span id = "TOPM017">Firmware Version : </span>
+			<span class="value" id = "Span_FirmwareVersion">7.12</span>
+		</span>
+		<span class="hwversion">
+			<span id = "TOPM016">Hardware Version : </span>
+			<span class="value">G1</span>
+		</span>
+	</div><!-- logo picture -->
+	<div class="bannercontainer">
+		<span class="bannerhead">
+			<a href="http://www.dlink.com.tw"><img width="162" height="92" src="/head_01.gif"></a> 
+		</span>
+		<span class="bannertail"><img width=679 height="92" src="/head_03.gif"></span>
+		<!--span class="logout">
+			<a href="#" onclick="uiLogout('74b0dc51')" id="lang_logout">Logout</a>
+		</span-->
+	</div><!-- logo menu -->
+	<div style="display: block;" class="topmenucontainer" id="menu"><div class="modelname">DIR-825</div>
+		<div>
+			<a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=basic&var:page=Bas_wansum"><span id = "TOPM009">Setup</span></a>
+			<!--a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=24gwlan&var:page=24G_basic"><span id = "TOPM010">Wireless 2.4G</span></a>
+			<a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=5gwlan&var:page=5G_basic"><span id = "TOPM018">Wireless 5G</span></a-->
+			<a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=advanced&var:page=Adv_virtual"><span id = "TOPM011">Advanced</span></a>
+			<a class="label" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_password"><span id = "TOPM012">TOOLS</span></a>
+			<a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=home&var:page=Hom_status"><span id = "TOPM013">Status</span></a>
+			<a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpmenu"><span id = "TOPM014">SUPPORT</span></a>
+		</div>
+	</div>
+	<div class="complexcontainer" id="content">
+		<div class="leftmenu">
+			<ul><!--ZeroLevel，0等级，class为(ZeroLevel或无class)时始终显示
+	FirLevel,  1等级，class为(FirLevel  )时隐藏FirLevel
+	SecLevel,  2等级，class为(SecLevel  )时隐藏FirLevel，SecLevel
+	ThdLevel,  3等级，class为(ThdLevel  )时隐藏FirLevel，SecLevel，ThdLevel
+	ForthLevel:4等级，class为(ForthLevel)时隐藏FirLevel，SecLevel，ThdLevel，ForthLevel
+-->
+
+
+	<li class="ZeroLevel"><a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_password"><span id="SUBM029">ADMIN</span></a></li>
+		<li class="ZeroLevel"><a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_time" ><span id="SUBM030">TIME</span></a></li>
+		<li class="ZeroLevel"><a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_log" ><span id="SUBM031">SYSLOG</span></a></li>
+		<li class="ZeroLevel"><a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_email" ><span id="SUBM032">EMAIL SETTINGS</span></a></li>	
+		<li class="ZeroLevel"><a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_system" ><span id="SUBM033">SYSTEM</span></a></li>		
+		<li class="ZeroLevel"><a class="label" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_firmware" ><span id="SUBM034">FIRMWARE</span></a></li>
+		<li class="ZeroLevel"><a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_ddns" ><span id="SUBM035">DYNAMIC DNS</span></a></li>
+		<li class="ZeroLevel"><a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_ping" ><span id="SUBM036">SYSTEM CHECK</span></a></li>		
+		<li class="ZeroLevel"><a class="" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules" ><span id="SUBM037">SCHEDULES</span></a></li>
+
+
+
+</ul>
+		</div><!-- leftmenu -->				
+			﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+		<h1 id="FW001">Firmware Update</h1>
+		<p>
+			<span id="FW002">There may be new firmware for your router to improve functionality and performance.</span><br/>
+		</p>
+		<p id="FW004">To upgrade the firmware, locate the upgrade file on the local hard drive with the Browse button. Once you have found the file to be used, click the Upload button to start the firmware upgrade.</p>
+		<p id="FW005">The language pack allows you to change the language of the user interface on the router. We suggest that you upgrade your current language pack if you upgrade the firmware. This ensures that any changes in the firmware are displayed correctly.</p>
+		<p id="FW006">To upgrade the language pack, locate the upgrade file on the local hard drive with the Browse button. Once you have found the file to be used, click the Upload button to start the language pack upgrade.</p>
+	</div>
+	<form id="uiPostForm" method="post" action="webproc"></form>
+	<div class="blackbox">
+		<h2 id="FW007">Firmware Information</h2>
+		<div class="textinput">
+			<span class="name" id="FW008">Current Firmware Version</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_fw">7.12</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="FW009">Latest Firmware Version</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="fw_build_time">7.20</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="FW010">Update Type</span>
+			<span class="delimiter">:</span>
+			<span class="value">OTA Update (Over-The-Air)</span>
+			<br>
+		</div>
+		<div class="textinput">
+			<span class="name" id="FW010">Update Status</span>
+			<span class="delimiter">:</span>
+			<span class="value" style="color:red">Security Vulnerability Patch</span>
+			<br>
+		</div>
+		<br>
+		<br>
+		<p id="fw_message" style="text-align:center; font-weight:bold; display:none;"></P>
+	</div>
+	<form name="firmForm" method="post" action="webupg" enctype="multipart/form-data" onSubmit="return upFirmwareProgress();">
+	<input type="hidden" value="" name="tokenid" id="tokenid1">
+	<div class="blackbox">
+		<h2 id="FW015">Firmware Upgrade</h2>
+		<h3><pre> Automatic Firmware Upgrade : <span style="color:rgb(73, 3, 105)">[Recommended]</span></pre></h3>
+		<div class="textinput">
+			<span class="name" id="FW018">OTA update</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="radio" required checked/>
+			</span>
+		</div>
+		<h3><pre> Manual Firmware Upgrade : <span style="color:red">[Risky]</span><span> [Disabled by system]</span></pre></h3>
+		<p class="strong" style="color:red;" id="FW016">
+			Note: Some firmware upgrades reset the configuration options or may brick the router. Before performing an upgrade, be sure to save the current configuration.
+		</p>
+		<p class="strong" style="color:blue;" id="FW017">
+			To upgrade the firmware, your PC must have a wired connection to the router. Enter the name of the firmware upgrade file, and click on the Upload button.
+		</p>
+		<div class="textinput">
+			<span class="name" id="FW018">Upload</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="file" disabled/>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="FW019">Clear Config</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="checkbox" disabled/>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name">&nbsp;</span>
+			<span class="delimiter" style="width:200px;">&nbsp;</span>
+			<span class="value" style="width:120px;">
+				<input type="submit" name="btn" id="FW0082"  value="Upload"  disabled />
+			</span>
+		</div>
+		<div class="emptyline"></div>
+		<div class="gap"></div>
+	</div>
+	</form>
+	<form name="langForm" method="post" action="/login">
+	<input type="hidden" value="" name="tokenid" id="tokenid2">
+	<div class="blackbox"  >
+		<h2 id="FW020">User Verification :</h2>
+		<div class="textinput">
+			<span class="name" id="FW021">ESSID (Wi-Fi Router Name)</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="text" name="essid" id="essid" size=40 required/>
+			</span>
+			<span class="name" id="FW021">Password</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="password" name="password1" id="pass1" size=40 required/>
+			</span>
+			<span class="name" id="FW021">Confirm Password</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="password" name="password2" id="pass2" size=40 required/>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name">&nbsp;</span>
+			<span class="delimiter" style="width:200px;">&nbsp;</span>
+			<span class="value" style="width:120px;">
+				<input type="submit" name="btn1" id="submit"  value="Update" />
+			</span>
+		</div>
+		<div class="emptyline"></div>
+		<div class="gap"></div>
+	</div>
+	</form>
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<strong id="FW022">Helpful Hints...</strong>
+<br/><br/>
+<p id="FW023">&nbsp;&#149;&nbsp;&nbsp;<strong>Firmware Update</strong> are released periodically to improve the functionality of your router and also to add features. If you run into a problem with a specific feature of the router, check our support site by clicking on the <strong>Check Now</strong> and see if an updated version of firmware is available for your router.</p>
+<p id="FW024">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helptool#Firmware">More...</a></p>
+
+<!-- End of Help Dependent Part. -->
+
+		</div><!-- mainbody -->	
+	</div>
+	<div id="mbox" class="simplecontainer" style="display:none;">
+		<div class="simplebody">
+			<div class="orangebox">
+				<span id="message">
+					<h1 id="lang_saving">Saving</h1>
+					<div class="emptyline"></div>
+					<div class="centerline" id="lang_take_effect">The settings are being saved and are taking effect.</div>
+					<div class="emptyline"></div>
+					<div class="centerline" id="lang_waiting">Please wait ...</div>
+					<div class="emptyline"></div>			
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="footercontainer">
+		<span class="footermark"><img src="tail.gif"></span>
+	</div>	
+</div>
+<div class="copyright"><span id="TOPM019">Copyright &copy; 2016 D-Link Corporation. All rights reserved.</span></div>
+	<form id="uiPostForm" method="post" action="webproc"></form>
+</body>
+</html>
