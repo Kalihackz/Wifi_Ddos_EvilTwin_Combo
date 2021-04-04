@@ -5,7 +5,7 @@ This is a combo script of Wifi Hijacking and Jamming.Includes builtin captive po
 a dlink firmware update page.It can jam or interrupt working of other wireless networks in
 2.4Ghz range.So be careful and don't misuse this script.Its only for education purpose.
 ```
-Tools and Modules used : 
+<img src="https://via.placeholder.com/1000x100/0d1117/BFFF00?text=Tools+and+Modules+used" />
 
 | Python3  | Bash | Node JS |
 | ------------- | ------------- | --------
@@ -17,7 +17,7 @@ Tools and Modules used :
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
-<img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=EXTRA+REQUIREMENTS+FOR+PYTHON" />
+
 
 Need some modules for python : 
 
