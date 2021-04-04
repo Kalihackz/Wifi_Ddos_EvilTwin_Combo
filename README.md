@@ -18,7 +18,6 @@ Tools and Modules used :
 
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=EXTRA+REQUIREMENTS+FOR+PYTHON" />
 
-
 Need some modules for python : 
 
 * flask - `pip3 install flask`
@@ -26,29 +25,23 @@ Need some modules for python :
 * termcolor - `pip3 install termcolor`
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=EXTRA+REQUIREMENTS+FOR+BASH" />
 
 Need some modules for bash : 
 
 * airmon-ng , airodump-ng , aireplay-ng
 * macchanger
-
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=EXTRA+REQUIREMENTS+FOR+NODE+JS" />
 
 Need some modules for bash : 
 
 * express
 * body-parser
-
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=FUNCTIONALITIES" />
 
 * **Wifi_Tool.py** - Used for scanning nearby Wifi Networks,Connect to it either by manual password entry or by brute force attack.
-
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=SCREENSHOT+OF+THE+SCRIPT" />
