@@ -31,6 +31,12 @@ Installation :
 | chmod +x Ddos_Wifi/wifiDos.sh |
 | chmod +x Ddos_Wifi/off_wifiDos.sh |
 
+Assumptions :
+
+We need two Wireless Adapters if two attacks are done together.
+`wlan1` - here is used for Wifi Ddos.
+`wlan0` - here is used for Evil Twin purposes.
+
 -------------------------------------------------------------------------------------------------------------------------------------------------
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=FUNCTIONALITIES" />
 
