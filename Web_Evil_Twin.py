@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-import subprocess
+import subprocess,os
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -29,4 +29,7 @@ def off_ddos():
     subprocess.call(['gnome-terminal', '--',"sudo", "sh", "Ddos_Wifi/off_wifiDos.sh"])
     return ("De-Activated")
 
+if not 'SUDO_UID' in os.environ.keys():
+    print("Try running this program with sudo.")
+    exit()
 app.run()
