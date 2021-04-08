@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import subprocess,os
+from termcolor import cprint
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -29,7 +30,19 @@ def off_ddos():
     subprocess.call(['gnome-terminal', '--',"sudo", "sh", "Ddos_Wifi/off_wifiDos.sh"])
     return ("De-Activated")
 
+
+
 if not 'SUDO_UID' in os.environ.keys():
     print("Try running this program with sudo.")
     exit()
-app.run()
+else:
+    cprint('''   _____                _           _____                          
+  / ____|              | |         / ____|                         
+ | |     ___  _ __ ___ | |__   ___| (___   ___ _ ____   _____ _ __ 
+ | |    / _ \| '_ ` _ \| '_ \ / _ \\___ \ / _ \ '__\ \ / / _ \ '__|
+ | |___| (_) | | | | | | |_) | (_) |___) |  __/ |   \ V /  __/ |   
+  \_____\___/|_| |_| |_|_.__/ \___/_____/ \___|_|    \_/ \___|_|   
+                                                                ''',"red")
+    cprint("                                                   By Kalihackz","green")
+    cprint("                                                   Version : Final","yellow")
+app.run(debug=False)
