@@ -42,7 +42,7 @@ We need two Wireless Adapters if two attacks are done together.
 Start Attack :
 ============
 
-* Command : `sudo python3 Web_Evil_Twin.py`.
+* Command : `sudo python3 comboServer_main.py`.
 * Navigate to http://127.0.0.1:5000 .
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
