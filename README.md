@@ -48,7 +48,7 @@ Start Attack :
 -------------------------------------------------------------------------------------------------------------------------------------------------
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=FUNCTIONALITIES" />
 
-* **Web_Evil_Twin.py** - One click web based Wifi Attacking Tool for DDosing and Evil Twin.
+* **comboServer_main.py** - One click web based Wifi Attacking Tool for DDosing and Evil Twin.
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=SCREENSHOT+OF+THE+SCRIPT" />
