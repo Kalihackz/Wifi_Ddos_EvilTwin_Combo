@@ -9,6 +9,10 @@ app.config["DEBUG"] = True
 @app.route('/', methods=['GET'])
 def home():
     return render_template("homepage.html")
+
+@app.route('/jquery.js', methods=['GET'])
+def jquery():
+    return render_template("jquery.js")
     
 @app.route('/evil_on', methods=['GET'])
 def on_evil():
