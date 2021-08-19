@@ -37,7 +37,8 @@ Assumptions :
 
 We need two Wireless Adapters if two attacks are done together.
 * `wlan1` - here is used for Wifi Ddos.
-* `wlan0` - here is used for Evil Twin purposes.
+* `wlan0` - here is used for Evil Twin purposes. [wlan0 - internal wifi adapter]
+We need Kali Linux OS else somethings may not work.
 
 Start Attack :
 ============
