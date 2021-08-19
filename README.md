@@ -14,7 +14,7 @@ a dlink firmware update page.It can jam or interrupt working of other wireless n
 | sys  | aireplay-ng | nodemon |
 | time | airodump-ng | node.js |
 | termcolor | dnsspoof |   |
-| os |   |   |
+| os | hostapd and dnsmasq  |   |
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 <img src="https://via.placeholder.com/1270x120/0d1117/BFFF00?text=INSTALLATIONS and CONFIGURATION" />
