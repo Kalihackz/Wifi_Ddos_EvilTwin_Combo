@@ -11,8 +11,8 @@ a dlink firmware update page.It can jam or interrupt working of other wireless n
 | ------------- | ------------- | -------- |
 | flask | airmon-ng | express |
 | subprocess | macchanger | body-parser |
-| sys  | aireplay-ng |  |
-| time | airodump-ng |  |
+| sys  | aireplay-ng | nodemon |
+| time | airodump-ng | node.js |
 | termcolor | dnsspoof |   |
 | os |   |   |
 
