@@ -13,7 +13,7 @@ a dlink firmware update page.It can jam or interrupt working of other wireless n
 | subprocess | macchanger | body-parser |
 | sys  | aireplay-ng |  |
 | time | airodump-ng |  |
-| termcolor |   |   |
+| termcolor | dnsspoof |   |
 | os |   |   |
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
