@@ -40,13 +40,13 @@ if not 'SUDO_UID' in os.environ.keys():
     print("Try running this program with sudo.")
     exit()
 else:
-    cprint('''   _____                _             _____                          
-  / ____|              | |           / ____|                         
- | |     ___  _ __ ___ | |__   ___  | (___   ___ _ ____   _____ _ __ 
- | |    / _ \| '_ ` _ \| '_ \ / _ \  \___ \ / _ \ '__\ \ / / _ \ '__|
- | |___| (_) | | | | | | |_) | (_) | ____) |  __/ |   \ V /  __/ |   
-  \_____\___/|_| |_| |_|_.__/ \___/ |_____/ \___|_|    \_/ \___|_|   
-                                                                ''',"red")
-    cprint("                                                   By Kalihackz","green")
-    cprint("                                                   Version : Final","yellow")
+    cprint('''  _   _      _   _                   
+ | \ | | ___| |_| |_ _ __ __ _ _ __  
+ |  \| |/ _ \ __| __| '__/ _` | '_ \ 
+ | |\  |  __/ |_| |_| | | (_| | |_) |
+ |_| \_|\___|\__|\__|_|  \__,_| .__/ 
+                              |_|    
+''',"red")
+    cprint("                         By Kalihackz","green")
+    cprint("                         Version : Final\n","yellow")
 app.run(debug=False)
